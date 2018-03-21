@@ -1,0 +1,34 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "redbuttonAlert.redbutton.nl"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "redbuttonAlert.redbutton.nl"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "redbuttonAlert.redbutton.nl"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "redbuttonAlert.redbutton.nl"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "redbuttonAlert.redbutton.nl"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "redbuttonAlert.redbutton.nl"
+    },
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "redbuttonAlert.redbutton.nl"
+    }
+  }
+}
