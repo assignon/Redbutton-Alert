@@ -19,20 +19,20 @@
             <div class="menuContainer">
 
               <img src="img/redbuttonLogo.svg" alt="" class="appLogo">
-              <div class="bmenuCont"><img src="img/bmenu.svg" alt="" class="bMenu"></div>
+              <div class="bmenuCont" @click="chgMenuStatus"><img src="img/bmenu.svg" alt="" class="bMenu"></div>
 
             </div>
 
-            <div class="core">
+            <div class="core" @click="closeMenu">
 
-               <div class="items">
+               <div class="items" @click="isUserLogged">
 
                   <div class="imgItemsCont"><img src="img/text.svg" alt=""></div>
 
                </div>
 
 
-               <div class="items">
+               <div class="items" @click="isUserLogged">
 
                  <div class="sosCont"><img src="img/redbuttonLogo.svg" alt="" class="sos"></div>
                  <div class="imgItemsCont"><img src="img/camera.svg" alt=""></div>
@@ -40,7 +40,7 @@
                </div>
 
 
-               <div class="items">
+               <div class="items" @click="isUserLogged">
 
                   <div class="imgItemsCont"><img src="img/video.svg" alt=""></div>
 
@@ -50,6 +50,61 @@
             </div>
 
          </div>
+
+         <div class="moreMenu">
+
+            <div class="moreMenuItems">
+
+               <img src="" alt="">
+               <p>Gebruiker</p>
+
+            </div>
+
+
+            <div class="moreMenuItems">
+
+               <img src="" alt="">
+               <p>Info</p>
+
+            </div>
+
+
+            <div class="moreMenuItems">
+
+               <img src="" alt="">
+               <p>Nieuwigheid</p>
+
+            </div>
+
+
+            <div class="moreMenuItems">
+
+               <img src="" alt="">
+               <p>Instellingen</p>
+
+            </div>
+
+
+            <div class="moreMenuItems">
+
+               <img src="" alt="">
+               <p>Uitlogen</p>
+
+            </div>
+
+         </div>
+
+         <form class="signInUp" action="" method="">
+
+           <img src="img/user.svg" alt="">
+           <p>Vul je inlog gegevens in...</p>
+
+           <input type="text" name="" placeholder="Gebruikersnaam">
+           <input type="password" name="" placeholder="Wachtwoord">
+           <input type="submit" name="" value="Login" class="submits">
+           <input type="submit" name="" value="Registreren" class="submits">
+
+         </form>
 
          <div class="appLauchScreen">
 
@@ -81,6 +136,9 @@
         <script type="application/javascript" src="libs/greensock/src/minified/TimelineMax.min.js"></script>
         <script type="application/javascript" src="libs/greensock/src/minified/TweenMax.min.js"></script>
         <script type="text/javascript" src="js/animations.js"></script>
+        <script type="text/javascript" src="js/appLogics.js"></script>
+        <script type="text/javascript" src="js/collections.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+
     </body>
 </html>

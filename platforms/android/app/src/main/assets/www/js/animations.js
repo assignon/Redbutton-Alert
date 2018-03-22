@@ -19,6 +19,26 @@ var Animations = {
 
       tl.staggerTo('.items', 1, {scale: 1, ease: Back.easeOut}, 0.3, 'logo +=6');
 
+   },
+
+
+   showMenu: function()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.moreMenu',0.9, {right: '0px', ease: Back.easeOut});
+     tl.to('.items',0.7, {scale: 0.7, ease: Back.easeOut}, '-=1');
+
+   },
+
+
+   hideMenu: function()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.moreMenu',0.9, {right: '-210px', ease: Back.easeInOut});
+     tl.to('.items',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
+
    }
 
 }

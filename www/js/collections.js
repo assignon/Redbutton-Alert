@@ -1,9 +1,11 @@
 var Collections = {
 
-  mongogx = function()
+  mongogx: function()
   {
 
      let mongogx = new OGX.Mongogx();
+     mongogx.createDatabase('rba');
+     mongogx.setDatabase('rba');
      return mongogx;
 
      /*mongogx.createDatabase('my_project');
@@ -20,6 +22,31 @@ var Collections = {
    	mongogx.insert({first_name:'Julien', age:45, sex:'male', location:{state:null, city:'Stockholm'}});
    	mongogx.insert({first_name:'George', age:55, sex:'male', location:{state:'QC', city:'Montreal'}, arts:{martial:['kickboxing', 'wresting']}});*/
 
+
+  },
+
+
+  signUp: function(username, password)
+  {
+
+    var usersCollection = Collections.mongogx();
+    usersCollection.createCollection('users');
+    usersCollection.setCollection('users');
+    var curUser = usersCollection.insert({username: username, password: password});
+    return {collection: curUser, curId: insertData};
+
+
+  }
+
+
+  sosCollection: function()
+  {
+
+     var mongogxCollection = Collections.mongogx();
+     mongogxCollection.createCollection('simpleAlert');
+     mongogxCollection.setCollection('simpleAlert');
+     var insertData = mongogxCollection.insert({user: 'yanick', message: 'j ai un bogue sur mon site! pouvez vous m aider?'});console.log(insertData);
+     return {instance: mongogxCollection, curId: insertData};
 
   }
 

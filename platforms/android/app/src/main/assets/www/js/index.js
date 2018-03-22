@@ -1,13 +1,19 @@
 
-var app = {
+var App = {
     // Application Constructor
     initialize: function() {
 
-      document.addEventListener('deviceready', Animations.lauchScreen, false);
+
       Animations.lauchScreen();
 
-    },
+      document.addEventListener('deviceready', function(){
+
+         Animations.lauchScreen();
+
+      },false);
+
+    }
 
 };
 
-app.initialize();
+App.initialize();

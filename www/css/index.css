@@ -24,8 +24,9 @@ body {
    width: 100%;
    height: 100vh;
    display: flex;
-   justify-content: center;
-   align-items: center;
+   justify-content: flex-end;
+   align-items: flex-end;
+   overflow-x: hidden;
 
 }
 
@@ -55,6 +56,7 @@ body {
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
+   z-index: 5;
 
 }
 
@@ -79,6 +81,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 4;
 
 }
 
@@ -164,6 +167,145 @@ body {
   width: 100%;
   height: 100%;
   margin-right: 30px;
+
+}
+
+
+.moreMenu
+{
+
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fc0e26;
+  position: relative;
+  z-index: 3;
+  -webkit-box-shadow: -4px 1px 6px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: -4px 1px 6px -2px rgba(0,0,0,0.75);
+  box-shadow: -4px 1px 6px -2px rgba(0,0,0,0.75);
+  right: -210px;
+
+}
+
+
+.moreMenuItems
+{
+
+   width: 100%;
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+   margin-left: 30px;
+   margin-top: 10px;
+
+}
+
+
+.moreMenuItems img
+{
+
+   width: 25px;
+   height: 25px;
+   border: 1px solid white;
+
+}
+
+
+.moreMenuItems p
+{
+
+   color: white;
+   text-align: left;
+   font-size: 17px;
+   margin-left: 10px;
+
+}
+
+
+.signInUp
+{
+
+   width: 90%;
+   height: auto;
+   padding: 5px;
+   padding-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border: 1px solid #fc0e26;
+   border-radius: 3px;
+   background-color: #fc0e26;
+   -webkit-box-shadow: -4px 1px 6px -2px rgba(0,0,0,0.75);
+   -moz-box-shadow: -4px 1px 6px -2px rgba(0,0,0,0.75);
+   box-shadow: -4px 1px 6px -2px rgba(0,0,0,0.75);
+   position: absolute;
+   top: 30%;
+   left: 3%;
+   z-index: 7;
+   transform: scale(0,0);
+
+}
+
+
+.signInUp img
+{
+
+   width: 40px;
+   height: 40px;
+   margin-top: 10px;
+
+}
+
+
+.signInUp p
+{
+
+   color: white;
+   text-align: center;
+   font-size: 16px;
+
+}
+
+
+.signInUp input
+{
+
+   width: 80%;
+   height: 33px;
+   border: 1px solid white;
+   border-radius: 3px;
+   background-color: white;
+   margin-bottom: 5px;
+   padding-left: 10px;
+   font-size: 17px;
+   text-align: left;
+   color: #fc0e26;
+   margin-top: 10px;
+
+}
+
+
+.signInUp .submits
+{
+
+   width: 82%;
+   height: 35px;
+   background-color: #fc0e26;
+   border: 1px solid #fc0e26;
+   color: white;
+   padding-left: 0px;
+   cursor: pointer;
+   text-align: center;
+   -webkit-box-shadow: 1px 0px 10px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 0px 10px 1px rgba(0,0,0,0.75);
+box-shadow: 1px 0px 10px 1px rgba(0,0,0,0.75);
+
 
 }
 
