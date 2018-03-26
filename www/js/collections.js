@@ -32,11 +32,15 @@ var Collections = {
     var usersCollection = Collections.mongogx();
     usersCollection.createCollection('users');
     usersCollection.setCollection('users');
-    var curUser = usersCollection.insert({username: username, password: password});
-    return {collection: curUser, curId: insertData};
+    var curUser = usersCollection.insert({username: username, password: password, admin: false});
+    var curUserName = usersCollection.find({_id: curUser})[curUser].username;
+    window.localStorage.setItem('userId',curUser);
+    window.localStorage.setItem('userCollection',usersCollection);
+    window.localStorage.setItem('userName',curUserName);
+    //return {collection: usersCollection, curId: curUser};
 
 
-  }
+  },
 
 
   sosCollection: function()

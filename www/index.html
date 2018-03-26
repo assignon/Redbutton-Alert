@@ -3,7 +3,7 @@
 <html>
     <head>
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:; script-src 'self' https://cdn.jsdelivr.net/npm/vue 'unsafe-eval';">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:; script-src 'self' https://cdn.jsdelivr.net/npm/vue 'unsafe-eval';">-->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -19,23 +19,24 @@
             <div class="menuContainer">
 
               <img src="img/redbuttonLogo.svg" alt="" class="appLogo">
+              <p><span>R</span>ed <span>B</span>utton <span>A</span>lert</p>
               <div class="bmenuCont" @click="chgMenuStatus"><img src="img/bmenu.svg" alt="" class="bMenu"></div>
 
             </div>
 
             <div class="core" @click="closeMenu">
 
-               <div class="items" @click="isUserLogged">
+               <div class="items" @click="callTxtForm">
 
                   <div class="imgItemsCont"><img src="img/text.svg" alt=""></div>
 
                </div>
 
 
-               <div class="items" @click="isUserLogged">
+               <div class="items">
 
-                 <div class="sosCont"><img src="img/redbuttonLogo.svg" alt="" class="sos"></div>
-                 <div class="imgItemsCont"><img src="img/camera.svg" alt=""></div>
+                 <div class="sosCont"><img src="img/redbuttonLogo.svg" alt="" class="sos" @click.stop="callSosConfirm"></div>
+                 <div class="imgItemsCont"><img src="img/camera.svg" alt="" @click="cameraSos"></div>
 
                </div>
 
@@ -55,15 +56,17 @@
 
             <div class="moreMenuItems">
 
-               <img src="" alt="">
-               <p>Gebruiker</p>
+               <img src="img/user.svg" alt="">
+               <!--<p v-if="!userStatus">{{ username }}</p>-->
+               <p v-if="username != null">{{ username }}</p>
+               <p v-else>Gebruikersnaam</p>
 
             </div>
 
 
             <div class="moreMenuItems">
 
-               <img src="" alt="">
+               <img src="img/info.svg" alt="">
                <p>Info</p>
 
             </div>
@@ -71,23 +74,31 @@
 
             <div class="moreMenuItems">
 
-               <img src="" alt="">
+               <img src="img/new.svg" alt="">
                <p>Nieuwigheid</p>
 
             </div>
 
 
-            <div class="moreMenuItems">
+            <div class="moreMenuItems" v-if="userIsAdmin">
 
-               <img src="" alt="">
-               <p>Instellingen</p>
+               <img src="img/users.svg" alt="">
+               <p>Gebruikers</p>
 
             </div>
 
 
             <div class="moreMenuItems">
 
-               <img src="" alt="">
+               <img src="img/settings.svg" alt="">
+               <p>Instellingen</p>
+
+            </div>
+
+
+            <div class="moreMenuItems" @click="logOut">
+
+               <img src="img/logout.svg" alt="">
                <p>Uitlogen</p>
 
             </div>
@@ -96,15 +107,82 @@
 
          <form class="signInUp" action="" method="">
 
-           <img src="img/user.svg" alt="">
-           <p>Vul je inlog gegevens in...</p>
+           <div class="imgs">
 
-           <input type="text" name="" placeholder="Gebruikersnaam">
-           <input type="password" name="" placeholder="Wachtwoord">
-           <input type="submit" name="" value="Login" class="submits">
-           <input type="submit" name="" value="Registreren" class="submits">
+               <img src="img/user.svg" alt="">
+               <img src="img/close.svg" alt="" class="close" @click="closeForm">
+
+           </div>
+           <p id="formNotif">Vul je inlog gegevens in...</p>
+
+           <input type="text" name="" placeholder="Gebruikersnaam" id="username">
+           <input type="password" name="" placeholder="Wachtwoord" id="password">
+           <input type="submit" name="" value="Login" class="submits" @click.prevent="login">
+           <input type="submit" name="" value="Registreren" class="submits" @click.prevent="registration">
 
          </form>
+
+
+         <div class="msgsCont">
+
+            <img src="img/alert.svg" alt="">
+            <p class="msgsContent"></p>
+
+         </div>
+
+
+         <div class="sosMsg">
+
+            <h2>SOS vesturen?</h2>
+            <div class="sosoConfirm">
+
+              <button class="yes" @click="sendSos">Ja</button>
+              <button class="no" @click="hideSosConfirm">Nee</button>
+
+            </div>
+
+         </div>
+
+
+
+         <div class="helpsCont">
+
+
+
+         </div>
+
+
+         <div class="cameraSosCont">
+
+            <div class="cameraImgCont">
+
+               <img src="" alt="" class="picture">
+
+            </div>
+
+            <form class="" action="" method="">
+
+               <textarea name="name" rows="8" cols="80" placeholder="Beschrijf uw probleem..."></textarea>
+               <input type="submit" name="" value="Vesturen">
+
+            </form>
+
+         </div>
+
+
+         <form action="" class="textForm">
+
+           <div class="textFormHeader">
+
+              <p class="textFormNotif">Stel jouw vraag...</p>
+              <img src="img/close.svg" alt="" @click="closeTxtForm">
+
+           </div>
+           <textarea name="name" rows="8" cols="80" placeholder="stel jouw vraag..." class="sosTextContent"></textarea>
+           <input type="submit" value="Sturen" @click.prevent="sendTxtSos">
+
+         </form>
+
 
          <div class="appLauchScreen">
 
@@ -138,6 +216,7 @@
         <script type="text/javascript" src="js/animations.js"></script>
         <script type="text/javascript" src="js/appLogics.js"></script>
         <script type="text/javascript" src="js/collections.js"></script>
+        <script type="text/javascript" src="js/ajaxReq.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 
     </body>

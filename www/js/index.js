@@ -10,6 +10,8 @@ var App = {
 
          Animations.lauchScreen();
 
+
+
       },false);
 
     }

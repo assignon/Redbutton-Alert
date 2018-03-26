@@ -36,7 +36,7 @@ var Animations = {
    {
 
      var tl = new TimelineMax();
-     tl.to('.moreMenu',0.9, {right: '-210px', ease: Back.easeInOut});
+     tl.to('.moreMenu',0.9, {right: '-240px', ease: Back.easeInOut});
      tl.to('.items',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
 
    },
@@ -58,6 +58,91 @@ var Animations = {
      var tl = new TimelineMax();
      tl.to('.signInUp',0.9, {scale: 0, ease: Back.easeInOut});
      tl.to('.items',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
+
+   },
+
+
+   callSosConfirm: function()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.sosMsg',0.7, {scale: 1, ease: Back.easeOut});
+     tl.to('.items',0.7, {scale: 0.7, ease: Back.easeOut}, '-=1');
+
+   },
+
+
+   hideSosConfirm: function()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.sosMsg',0.7, {scale: 0, ease: Back.easeOut});
+     tl.to('.items',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
+
+   },
+
+
+   showHideMsgs: function(message)
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.msgsCont',1, {scale: 1, ease: Back.easeOut}, '#showmsg');
+     tl.to('.items',1, {scale: 0.7, ease: Back.easeOut}, '-=3');
+     tl.to('.msgsCont',1, {scale: 0, ease: Back.easeOut}, 5);
+     tl.to('.items',1, {scale: 1, ease: Back.easeOut}, 5);
+
+     var msgsContent = document.querySelector('.msgsContent');
+     msgsContent.textContent = message;
+
+   },
+
+
+   callTextHelp: function()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.textForm',0.7, {scale: 1, ease: Back.easeOut});
+     tl.to('.items',0.7, {scale: 0.7, ease: Back.easeOut}, '-=1');
+
+   },
+
+
+   hideTextHelp: function()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.textForm',0.7, {scale: 0, ease: Back.easeOut});
+     tl.to('.items',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
+
+   },
+
+
+   callSosCamera: function()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.cameraSosCont',0.7, {scale: 1, ease: Back.easeOut});
+     tl.to('.items',0.7, {scale: 0.7, ease: Back.easeOut}, '-=1');
+
+   },
+
+
+   hideSosCamera: function()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.cameraSosCont',0.7, {scale: 0, ease: Back.easeOut});
+     tl.to('.items',0.7, {scale: 1, ease: Back.easeOut}, '-=0.7');
+
+   },
+
+
+   showHelps: function()
+   {
+
+     var tl = new TimelineMax();
+     tl.to('.helpsCont',1, {scale: 1, ease: Back.easeOut});
+     tl.to('.items',1, {scale: 0.7, ease: Back.easeOut}, '-=0.7');
 
    }
 
